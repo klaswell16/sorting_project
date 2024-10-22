@@ -1,34 +1,46 @@
-public class Employee {
-    private final int ID;
-    private final String firstName;
-    private final String lastName;
-    private final int age;
+class Employee {
+    private final String empId;
+    private String firstName;
+    private String lastName;
+    private int age;
 
-    public Employee(int initialID, String initialFirstName, String initialLastName, int initialAge){
-        this.ID = initialID;
-        this.firstName = initialFirstName;
-        this.lastName = initialLastName;
-        this.age = initialAge;
+    public Employee(String empId, String firstName, String lastName, int age) {
+        this.empId = empId;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.age = age;
     }
 
-    public int getID() {
-        return this.ID;
+    public String getEmpId() {
+        return empId;
     }
 
     public String getFirstName() {
-        return this.firstName;
+        return firstName;
     }
 
     public String getLastName() {
-        return this.lastName;
+        return lastName;
     }
 
     public int getAge() {
-        return this.age;
-    }
-    public void setID(int initialID){
-        int id = this.ID;
-
+        return age;
     }
 
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    @Override
+    public String toString() {
+        return empId + "," + firstName + "," + lastName + "," + age;
+    }
 }
