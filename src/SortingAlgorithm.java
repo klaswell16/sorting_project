@@ -5,7 +5,6 @@ import java.util.List;
 public class SortingAlgorithm {
     public static class EmployeeSorter {
 
-        // Read employees from a CSV file
         private static List<Employee> readCSV(String fileName) {
             List<Employee> employees = new ArrayList<>();
             try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
@@ -22,7 +21,7 @@ public class SortingAlgorithm {
             return employees;
         }
 
-        // Write employees to a CSV file
+
         private static void writeCSV(String fileName, List<Employee> employees) {
             try (PrintWriter pw = new PrintWriter(new FileWriter(fileName))) {
                 pw.println("id,first_name,last_name,age");
@@ -34,7 +33,7 @@ public class SortingAlgorithm {
             }
         }
 
-        // Swap the attributes, keeping ID unchanged
+
         private static void swapAttributes(Employee emp1, Employee emp2) {
             String tempFirstName = emp1.getFirstName();
             String tempLastName = emp1.getLastName();
@@ -49,7 +48,7 @@ public class SortingAlgorithm {
             emp2.setAge(tempAge);
         }
 
-        // Bubble Sort
+
         private static void bubbleSort(List<Employee> employees) {
             int n = employees.size();
             for (int i = 0; i < n - 1; i++) {
@@ -61,7 +60,7 @@ public class SortingAlgorithm {
             }
         }
 
-        // Selection Sort
+
         private static void selectionSort(List<Employee> employees) {
             int n = employees.size();
             for (int i = 0; i < n - 1; i++) {
@@ -75,7 +74,7 @@ public class SortingAlgorithm {
             }
         }
 
-        // Insertion Sort
+
         private static void insertionSort(List<Employee> employees) {
             int n = employees.size();
             for (int i = 1; i < n; i++) {
@@ -94,7 +93,7 @@ public class SortingAlgorithm {
             }
         }
 
-        // Merge Sort
+
         private static void mergeSort(List<Employee> employees) {
             if (employees.size() < 2) return;
             int mid = employees.size() / 2;
@@ -123,7 +122,7 @@ public class SortingAlgorithm {
             }
         }
 
-        // Quick Sort
+
         private static void quickSort(List<Employee> employees, int low, int high) {
             if (low < high) {
                 int pi = partition(employees, low, high);
@@ -145,11 +144,11 @@ public class SortingAlgorithm {
             return i + 1;
         }
 
-        // Process each file with all sorting algorithms
+
         private static void processFile(String fileName) {
             List<Employee> employees = readCSV(fileName);
 
-            // Bubble Sort
+
             List<Employee> bubbleSorted = new ArrayList<>(employees);
             long startTime = System.nanoTime();
             bubbleSort(bubbleSorted);
@@ -157,7 +156,7 @@ public class SortingAlgorithm {
             System.out.println("BubbleSort on " + fileName + " took " + (endTime - startTime) / 1e6 + " ms");
             writeCSV(fileName.replace(".csv", "_bubblesort.csv"), bubbleSorted);
 
-            // Selection Sort
+
             List<Employee> selectionSorted = new ArrayList<>(employees);
             startTime = System.nanoTime();
             selectionSort(selectionSorted);
@@ -165,7 +164,7 @@ public class SortingAlgorithm {
             System.out.println("SelectionSort on " + fileName + " took " + (endTime - startTime) / 1e6 + " ms");
             writeCSV(fileName.replace(".csv", "_selectionsort.csv"), selectionSorted);
 
-            // Insertion Sort
+
             List<Employee> insertionSorted = new ArrayList<>(employees);
             startTime = System.nanoTime();
             insertionSort(insertionSorted);
@@ -173,7 +172,7 @@ public class SortingAlgorithm {
             System.out.println("InsertionSort on " + fileName + " took " + (endTime - startTime) / 1e6 + " ms");
             writeCSV(fileName.replace(".csv", "_insertionsort.csv"), insertionSorted);
 
-            // Merge Sort
+
             List<Employee> mergeSorted = new ArrayList<>(employees);
             startTime = System.nanoTime();
             mergeSort(mergeSorted);
@@ -181,7 +180,7 @@ public class SortingAlgorithm {
             System.out.println("MergeSort on " + fileName + " took " + (endTime - startTime) / 1e6 + " ms");
             writeCSV(fileName.replace(".csv", "_mergesort.csv"), mergeSorted);
 
-            // Quick Sort
+
             List<Employee> quickSorted = new ArrayList<>(employees);
             startTime = System.nanoTime();
             quickSort(quickSorted, 0, quickSorted.size() - 1);
